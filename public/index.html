@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="cardLing">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>cardling</title>
+
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+   <link rel="stylesheet" href="css/style.css">
+ <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+ <script src="controller.js"></script>
+
+</head>
+<body ng-controller="mainController">
+  <div class="container">
+    <div class="jumbotron text-center col-md-8">
+          <h1> Cardling </h1>
+          <h4> acquiring vocabulary through self-generated content </h4>
+          <h4> Cards in this Set: <span class="label label-info">{{ cards.length }}</span></h4>
+    </div>
+    <div id="card-form" class="col-md-4">
+      <form>
+            <input type="text" class="form-control input-lg text-center" placeholder="word to translate" ng-model="formData.original">
+            <input type="text" class="form-control input-lg text-center" placeholder="translation" ng-model="formData.translated">
+            <input type="text" class="form-control input-lg text-center" placeholder="image link" ng-model="formData.src">
+          <button type="submit" class="btn btn-primary btn-lg" ng-click="createCard()">Add</button>
+      </form>
+    </div>
+    <div id="card-list" class="container">
+            <div class="checkbox col-md-4" ng-repeat="card in cards" ng-click="flip(card, card._id)" ng-class="card._id">
+              <input type="checkbox" ng-click="deleteCard(card._id)"></input>
+              <p> {{ card.text}} </p>
+              <img ng-src='./img/{{card.src}}' >
+            </div>
+        </div>
+    </div>
+  </div>
+</body>
+</html>
