@@ -1,5 +1,6 @@
 var Card = require('./models/card');
 var path = require('path');
+
 function getCards(res) {
   Card.find(function (err, cards) {
     if(err) {
@@ -18,7 +19,7 @@ module.exports = function (app) {
 
   app.post('/api/cards', function(req, res) {
     var imagePath = req.body.src;
-  //  var imagePath = '../public/img/' + req.body.src;
+
     Card.create({
       original: req.body.original,
       translated: req.body.translated,

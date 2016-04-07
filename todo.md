@@ -1,24 +1,22 @@
 
 ## Todo
 
-- google translate API pipe on term form entry
+- ~dropdown language menu~
 
-- dropdown menu for translation selection
+- ~edit: v01 change media storage to user managed url entry~
 
-- form validation
+- form validation based on collection
 
-- edit mongo Cards
+- edit mongo Cards option
+
+- card-back white background
 
 - set up user accounts
 
-- encapsulate card collection in a user collection
-
-- getUserMedia image
-
-- getUserMedia Video
-
-- store files in desktop or mobile
+- if link returns video, use video card display
 
 - ionic packaging
 
 - get mobile user media
+
+- mobile user image display 

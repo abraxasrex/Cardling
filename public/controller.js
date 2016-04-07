@@ -1,6 +1,5 @@
 
 var Cardling = angular.module('cardLing', []);
-
 function mainController($scope, $http) {
   $scope.formData = {};
 
@@ -8,7 +7,7 @@ function mainController($scope, $http) {
      if($scope.cards) {
        $scope.cards.forEach( function(card) {
         if(!card.text) {
-          card.text = card.original;
+          card.text = card.translation;
         }
        });
      }
@@ -17,17 +16,16 @@ function mainController($scope, $http) {
   $http.get('/api/cards').success(function(data) {
     $scope.cards = data;
     initCards();
-    console.log('$http: ', data);
   }).error(function(data) {
     console.log('Get Error: ' + data);
   });
 
-  $scope.createCard = function() {
+  $scope.submitCard = function() {
     $http.post('/api/cards', $scope.formData).success(function(data) {
       $scope.formData = {};
       $scope.cards = data;
       initCards();
-      console.log('createcard ', data);
+      console.log('card ', data);
     }).error(function(data) {
       console.log('Create Error: ' + data);
     });
@@ -41,7 +39,7 @@ function mainController($scope, $http) {
       console.log('Delete Error: ' + data);
     });
   };
-
+// to separate into UI controller
   $scope.flip = function(card, id) {
     var flipper = document.getElementsByClassName(id)[0];
   if(flipper.classList.contains('back-flip')) {
@@ -61,4 +59,12 @@ function mainController($scope, $http) {
     }
   };
 
+  $scope.langChoices = [];
+  $http.get('languages.json').success(function(languages) {
+    for (item in languages.lang) {
+      $scope.langChoices.push(languages.lang[item][0]);
+    }
+  }).error( function(err) {
+    console.log('getting lang json err: ', err);
+  });
 }
