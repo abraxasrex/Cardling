@@ -2,6 +2,8 @@
 var Cardling = angular.module('cardLing', []);
 function mainController($scope, $http) {
   $scope.formData = {};
+  $scope.submitText = "Add card";
+  $scope.formData.edit = null;
 
   function initCards(){
      if($scope.cards) {
@@ -11,7 +13,7 @@ function mainController($scope, $http) {
         }
        });
      }
-  }
+  };
 
   $http.get('/api/cards').success(function(data) {
     $scope.cards = data;
@@ -34,11 +36,32 @@ function mainController($scope, $http) {
   $scope.deleteCard = function(id) {
     $http.delete('/api/cards/' + id).success(function(data) {
       $scope.cards = data;
-      console.log('delete card ', data);
+      initCards();
     }).error(function(data) {
       console.log('Delete Error: ' + data);
     });
   };
+
+  $scope.editCard = function(card) {
+    if($scope.formData.edit === null) {
+      console.log('card to edit is ', card)
+      $scope.formData.original = card.original
+      $scope.formData.translated = card.translated;
+      $scope.formData.src = card.src;
+      $scope.formData.edit = card._id;
+      $scope.submitText = "Edit card"
+    }
+   else {
+     $scope.formData.edit = null;
+     $scope.submitText = "Add card";
+     $scope.formData.original = "";
+     $scope.formData.translated = "";
+     $scope.formData.src = "";
+   }
+   initCards();
+ };
+
+
 // to separate into UI controller
   $scope.flip = function(card, id) {
     var flipper = document.getElementsByClassName(id)[0];

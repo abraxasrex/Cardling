@@ -27,8 +27,6 @@
           </select>
             </fieldset>
             <input type="text" class="form-control input-lg text-center" placeholder="word to translate" ng-model="formData.original">
-
-
         <fieldset>
           <label> target language </label>
             <select id="translated">
@@ -40,14 +38,15 @@
               <label> add an image</label>
                   </fieldset>
             <input type="text" class="form-control input-lg text-center" placeholder="image link" ng-model="formData.src">
-          <button type="submit" class="btn btn-primary btn-lg" ng-click="submitCard()">Add Card</button>
+          <button type="submit" class="btn btn-primary btn-lg" ng-click="submitCard()">{{submitText}}</button>
       </form>
     </div>
     <div id="card-list" class="container">
-            <div class="checkbox col-md-4" ng-repeat="card in cards" ng-click="flip(card, card._id)" ng-class="card._id">
+            <div class="checkbox col-md-4" ng-repeat="card in cards" ng-class="card._id">
               <input type="checkbox" ng-click="deleteCard(card._id)"></input>
-              <p> {{ card.text}} </p>
-              <img ng-src='./img/{{card.src}}' >
+              <p > {{ card.text}} </p>
+              <img ng-src='./img/{{card.src}}' ng-click="flip(card, card._id)">
+              <button class="btn btn-default" ng-click="editCard(card)">edit</button>
             </div>
         </div>
     </div>

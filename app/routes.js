@@ -11,44 +11,74 @@ function getCards(res) {
   });
 };
 
+function makeCard(req, res, imagePath) {
+  Card.create({
+    original: req.body.original.trim(),
+    translated: req.body.translated.trim(),
+    done: false,
+    src: imagePath
+  }, function(err, card) {
+    if(err) {
+      res.send('Card creation err: ', err);
+    } else {
+      getCards(res);
+    }
+  });
+};
+
+function editCard(req, res, imagePath, id) {
+  Card.update({ _id: id },
+    { $set: { original: req.body.original, translated: req.body.translated, src: req.body.src}
+  }, function(err, card) {
+    if(err) {
+      res.send('Card edit error: ', err);
+    } else {
+      getCards(res);
+    }
+  });
+};
+
+function removeCard(req, res) {
+  Card.remove({
+    _id : req.params.card_id
+  }, function(err, card) {
+    if (err) {
+      res.send(err);
+    } else {
+      Card.find(function(err, cards) {
+        if (err){
+          res.send(err);
+        } else {
+          res.json(cards);
+        }
+      });
+    }
+  });
+};
+
 module.exports = function (app) {
+
 
   app.get('/api/cards', function(req, res) {
     getCards(res);
   });
 
-  app.post('/api/cards', function(req, res) {
-    var imagePath = req.body.src;
-
-    Card.create({
-      original: req.body.original,
-      translated: req.body.translated,
-      done: false,
-      src: imagePath
-    }, function(err, card) {
-      if(err) {
-        res.send(err);
-      } else {
-        getCards(res);
-      }
-    });
+  app.delete('/api/cards/:card_id', function(req, res) {
+     removeCard(req, res);
   });
 
-  app.delete('/api/cards/:card_id', function(req, res) {
-    Card.remove({
-      _id : req.params.card_id
-    }, function(err, card) {
-      if (err) {
-        res.send(err);
-      } else {
-        Card.find(function(err, cards) {
-          if (err){
-            res.send(err);
-          } else {
-            res.json(cards);
-          }
-        });
-      }
+  app.post('/api/cards', function(req, res) {
+    var imagePath = req.body.src;
+    Card.findOne({original : req.body.original, translated: req.body.translated}, function(err, data) {
+        if(err) {
+            console.log(" findOne duplicate err: ", err);
+        } else if(req.body.edit){
+          editCard(req, res, imagePath, req.body.edit);
+        } else if(data === null){
+          makeCard(req, res, imagePath);
+        } else {
+          console.log('attempted to upload duplicate Card!!');
+        }
     });
   });
 
