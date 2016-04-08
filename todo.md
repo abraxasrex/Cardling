@@ -11,15 +11,39 @@
 
 - ~edit mongo Cards option~
 
-- separate controller logic: UI controller and card controller
-
-- card-back white background
-
-- set up user accounts
+- ~card-back white background~
 
 - if link returns video, use video card display
 
+ ### Weekend:
+
+- set up user accounts
+
+- user routing
+
+- swipe UI
+
+### next Week
+
+- mongolab connect
+
 - fix inital card text display
+
+- UI/UX styling + about me page
+
+- deployment
+
+### next Weekend
+
+- learn testing
+
+### next next Week
+
+- fix and deploy past projects + portfolio
+
+- write tests/publish npm package/simple demo
+
+### stretch goals
 
 - ionic packaging
 

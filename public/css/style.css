@@ -2,40 +2,52 @@ html {
   overflow-y:scroll;
 }
 
-.checkbox {
-  margin: 0 auto;
-  transition: transform 1s;
-}
 .front-flip {
   transform: rotate3d(0, 1, 0, 360deg);
 }
+
 .back-flip {
   transform: rotate3d(0, 1, 0, 0deg);
 }
 
- .checkbox img {
-   top: 0%;
-   left: 0%;
-   max-width: 100%;
-   max-height: 100%;
- }
+.flashcard {
+  margin: 0 auto;
+  transition: all 1s;
+  text-align: center;
+  height: 250px;
+  line-height: 250px;
+  background-size: cover;
+  background-position:top left;
+}
 
- .checkbox p {
-   position: absolute;
-   right: 33%;
-   top: 33%;
+ .flashcard p {
+   vertical-align: middle;
    font-size: 45px;
    color: pink;
    text-shadow: 1px 1px 1px black;
+   z-index: 1;
  }
 
- .checkbox input{
-   position: absolute;
-   top: 5%;
-   left: 15%;
-   height: 15px;
-   width: 15px;
+ .flashcard .delete{
+   color: black;
+   float: left;
  }
+
+ .flashcard .edit {
+   float: left;
+ }
+
+.card-control {
+  z-index: 1;
+}
+.card-video {
+  height: 100%;
+  z-index: -1;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
 #card-form {
   height: 300px;

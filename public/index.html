@@ -42,11 +42,13 @@
       </form>
     </div>
     <div id="card-list" class="container">
-            <div class="checkbox col-md-4" ng-repeat="card in cards" ng-class="card._id">
-              <input type="checkbox" ng-click="deleteCard(card._id)"></input>
-              <p > {{ card.text}} </p>
-              <img ng-src='./img/{{card.src}}' ng-click="flip(card, card._id)">
-              <button class="btn btn-default" ng-click="editCard(card)">edit</button>
+            <div class="flashcard col-md-4" ng-repeat="card in cards" ng-dblclick="flip(card, card._id)" ng-class = "card._id" back-img = "./img/{{card.src}}">
+              <div class="card-control">
+              <button class="btn btn-md btn-danger delete" ng-click="deleteCard(card._id)">X</button>
+              <button class="btn btn-md btn-default edit" ng-click="editCard(card)">edit</button>
+            </div>
+              <p> {{ card.text}} </p>
+            <video class = "card-video" src="./vid/{{card.src}}" autoplay loop muted></video>
             </div>
         </div>
     </div>

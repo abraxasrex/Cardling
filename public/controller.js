@@ -1,5 +1,5 @@
-
 var Cardling = angular.module('cardLing', []);
+
 function mainController($scope, $http) {
   $scope.formData = {};
   $scope.submitText = "Add card";
@@ -61,7 +61,6 @@ function mainController($scope, $http) {
    initCards();
  };
 
-
 // to separate into UI controller
   $scope.flip = function(card, id) {
     var flipper = document.getElementsByClassName(id)[0];
@@ -90,4 +89,15 @@ function mainController($scope, $http) {
   }).error( function(err) {
     console.log('getting lang json err: ', err);
   });
-}
+};
+
+Cardling.directive('backImg', function(){
+    return function(scope, element, attrs){
+        attrs.$observe('backImg', function(value) {
+            element.css({
+                'background-image': 'url(' + value +')',
+                'background-size' : 'cover'
+            });
+        });
+    };
+});

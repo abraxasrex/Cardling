@@ -12,11 +12,17 @@ function getCards(res) {
 };
 
 function makeCard(req, res, imagePath) {
+  var hasVideo;
+  if(imagePath.slice(imagePath.indexOf(imagePath.length - 1)) == '4') {
+    hasVideo = true;
+  } else {
+    hasVideo = false;
+  }
   Card.create({
     original: req.body.original.trim(),
     translated: req.body.translated.trim(),
-    done: false,
-    src: imagePath
+    src: imagePath,
+    hasVideo: hasVideo
   }, function(err, card) {
     if(err) {
       res.send('Card creation err: ', err);
