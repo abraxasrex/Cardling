@@ -22,7 +22,7 @@ app.use(methodOverride());
 
 require('./app/routes.js')(app);
 
-var port = process.env.PORT || 8000;
+var port = process.env.PORT || 8080;
 app.listen(port);
 var node_name = process.argv[0].toString();
 node_name = node_name.slice(node_name.length - 8, node_name.length - 4);

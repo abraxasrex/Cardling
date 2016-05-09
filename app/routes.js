@@ -9,7 +9,7 @@ function getCards(res) {
       res.json(cards);
     }
   });
-};
+}
 
 function makeCard(req, res, imagePath) {
   var hasVideo;
@@ -30,7 +30,7 @@ function makeCard(req, res, imagePath) {
       getCards(res);
     }
   });
-};
+}
 
 function editCard(req, res, imagePath, id) {
   Card.update({ _id: id },
@@ -42,7 +42,7 @@ function editCard(req, res, imagePath, id) {
       getCards(res);
     }
   });
-};
+}
 
 function removeCard(req, res) {
   Card.remove({
@@ -60,7 +60,7 @@ function removeCard(req, res) {
       });
     }
   });
-};
+}
 
 module.exports = function (app) {
 

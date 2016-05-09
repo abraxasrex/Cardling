@@ -84,7 +84,7 @@ function mainController($scope, $http) {
   $scope.langChoices = [];
   $http.get('languages.json').success(function(languages) {
     for (item in languages.lang) {
-      $scope.langChoices.push(languages.lang[item][0]);
+      $scope.langChoices.push(languages.lang[item][0]+ '  ('+ languages.lang[item][1] +')');
     }
   }).error( function(err) {
     console.log('getting lang json err: ', err);
