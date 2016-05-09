@@ -30,7 +30,7 @@
         <fieldset>
           <label> target language </label>
             <select id="translated">
-              <option ng-repeat = "lang in langChoices"> {{ lang }} </option>
+              <option ng-repeat = "lang in langChoices" ng-selected="$index == 36"> {{ lang }} </option>
             </select>
               </fieldset>
             <input type="text" class="form-control input-lg text-center" placeholder="translation" ng-model="formData.translated">
@@ -52,6 +52,5 @@
             </div>
         </div>
     </div>
-  </div>
 </body>
 </html>

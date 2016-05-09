@@ -82,9 +82,10 @@ function mainController($scope, $http) {
   };
 
   $scope.langChoices = [];
+    $scope.eng = 'English       (English)';
   $http.get('languages.json').success(function(languages) {
     for (item in languages.lang) {
-      $scope.langChoices.push(languages.lang[item][0]+ '  ('+ languages.lang[item][1] +')');
+      $scope.langChoices.push(languages.lang[item][0]);
     }
   }).error( function(err) {
     console.log('getting lang json err: ', err);
