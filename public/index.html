@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>cardling</title>
   <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:700italic' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
    <link rel="stylesheet" href="css/style.css">
  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
@@ -14,21 +15,22 @@
 <body ng-controller="mainController">
   <div class="container">
     <div class="jumbotron text-center col-md-9">
-          <h1> Cardling </h1>
-          <h4> acquiring vocabulary through self-generated content </h4>
-          <h4> Cards in this Set: <span class="label label-info">{{ cards.length }}</span></h4>
+          <h1> Cardling: </h1>
+          <h4> acquiring vocabulary through self-generated content. </h4>
+          <!-- <h4> Cards in this Set: <span class="label label-info">{{ cards.length }}</span></h4> -->
     </div>
-    <div id="card-form" class="col-md-3 card-form">
+    <aside id="card-form" class="col-md-3 card-form">
       <form>
+        <h3> new / edit:</h3>
         <fieldset>
-          <label> original language: </label>
+          <label> 1<sup>st</sup> language: </label>
         <select id="to-translate">
           <option ng-repeat="lang in langChoices" ng-selected="$index == 6"> {{ lang }} </option>
           </select>
             </fieldset>
             <input type="text" class="form-control input-lg text-center" placeholder="word to translate" ng-model="formData.original">
         <fieldset>
-          <label> target language: </label>
+          <label> 2<sup>nd</sup> language: </label>
             <select id="translated">
               <option ng-repeat = "lang in langChoices" ng-selected="$index == 36"> {{ lang }} </option>
             </select>
@@ -40,9 +42,9 @@
             <input type="text" class="form-control input-lg text-center" placeholder="image link" ng-model="formData.src">
           <button type="submit" class="btn btn-primary btn-md" ng-click="submitCard()">{{submitText}}</button>
       </form>
-    </div>
+    </aside>
     <div id="card-list">
-      <div class="flashcard col-md-4" ng-repeat="card in cards" ng-dblclick="flip(card, card._id)" ng-class = "card._id" back-img = "./img/{{card.src}}">
+      <div class="flashcard col-md-3" ng-repeat="card in cards" ng-dblclick="flip(card, card._id)" ng-class = "card._id" back-img = "./img/{{card.src}}">
         <div class="card-control">
           <button class="btn btn-md btn-danger delete" ng-click="deleteCard(card._id)">X</button>
           <button class="btn btn-md btn-default edit" ng-click="editCard(card)">Edit</button>

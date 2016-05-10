@@ -1,15 +1,26 @@
+
+/*lb #94E2FF
+g #5CE868
+y #FFEF73
+br #E89259
+pink #FFA7EB  */
+
+
+
 html {
   overflow-y:scroll;
 }
 body{
   min-height: 1000px;
   font-family: 'Varela Round', sans-serif;
+  background-color: Gainsboro;
 }
 .container{
   margin: 20px 20px;
   width: 100%;
   max-width: 1500px;
 }
+
 .front-flip {
   transform: rotate3d(0, 1, 0, 360deg);
 }
@@ -21,7 +32,7 @@ body{
 .flashcard {
   margin: 10px;
   padding: 5px;
-  border: 1px solid;
+  border: 2px inset  #324D5C;
   transition: all 1s;
   text-align: center;
   height: 225px;
@@ -31,13 +42,21 @@ body{
   overflow: hidden;
   padding:0px;
 }
+.flashcard button{
+  border-radius: 0;
+}
 
  .flashcard p {
+   padding: 0;
+   margin: 0;
+   color: white;
    vertical-align: middle;
-   font-size: 45px;
-   color: pink;
-   text-shadow: 1px 1px 1px black;
+   font-size: 36px;
    z-index: 1;
+ }
+
+ .card-form {
+
  }
 
  .flashcard .delete{
@@ -65,8 +84,22 @@ body{
   width: 100%;
 }
 
-.card-form, .jumbotron {
-  height: 270px;
+.jumbotron h1{
+  width: 50%;
+  margin: 0 auto;
+  font-family: 'Roboto Condensed', sans-serif;
+  border-bottom: 1px solid black;
+  font-size: 84px;
+  color: white;
+  text-shadow:
+    -2px -2px 0 #000,
+     2px -2px 0 #000,
+     -2px 2px 0 #000,
+      2px 2px 0 #000;
+}
+.jumbotron{
+  background-color: #DE5B49;
+  border: 20px inset #324D5C;
 }
 
 form {
