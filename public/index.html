@@ -13,17 +13,17 @@
 </head>
 <body ng-controller="mainController">
   <div class="container">
-    <div class="jumbotron text-center col-md-8">
+    <div class="jumbotron text-center col-md-9">
           <h1> Cardling </h1>
           <h4> acquiring vocabulary through self-generated content </h4>
           <h4> Cards in this Set: <span class="label label-info">{{ cards.length }}</span></h4>
     </div>
-    <div id="card-form" class="col-md-4">
+    <div id="card-form" class="col-md-3">
       <form>
         <fieldset>
           <label> original language </label>
         <select id="to-translate">
-          <option ng-repeat="lang in langChoices"> {{ lang }} </option>
+          <option ng-repeat="lang in langChoices" ng-selected="$index == 6"> {{ lang }} </option>
           </select>
             </fieldset>
             <input type="text" class="form-control input-lg text-center" placeholder="word to translate" ng-model="formData.original">
@@ -42,15 +42,15 @@
       </form>
     </div>
     <div id="card-list" class="container">
-            <div class="flashcard col-md-4" ng-repeat="card in cards" ng-dblclick="flip(card, card._id)" ng-class = "card._id" back-img = "./img/{{card.src}}">
-              <div class="card-control">
-              <button class="btn btn-md btn-danger delete" ng-click="deleteCard(card._id)">X</button>
-              <button class="btn btn-md btn-default edit" ng-click="editCard(card)">edit</button>
-            </div>
-              <p> {{ card.text}} </p>
-            <video class = "card-video" src="./vid/{{card.src}}" autoplay loop muted></video>
-            </div>
+      <div class="flashcard col-md-4" ng-repeat="card in cards" ng-dblclick="flip(card, card._id)" ng-class = "card._id" back-img = "./img/{{card.src}}">
+        <div class="card-control">
+          <button class="btn btn-md btn-danger delete" ng-click="deleteCard(card._id)">X</button>
+          <button class="btn btn-md btn-default edit" ng-click="editCard(card)">edit</button>
         </div>
+          <p> {{ card.text}} </p>
+          <video class = "card-video" src="./vid/{{card.src}}" autoplay loop muted></video>
+      </div>
     </div>
+  </div>
 </body>
 </html>

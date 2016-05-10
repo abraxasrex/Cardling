@@ -1,7 +1,12 @@
 html {
   overflow-y:scroll;
 }
-
+body{
+  min-height: 1000px;
+}
+.container{
+  margin-right: 0;
+}
 .front-flip {
   transform: rotate3d(0, 1, 0, 360deg);
 }
@@ -18,6 +23,8 @@ html {
   line-height: 250px;
   background-size: cover;
   background-position:top left;
+  overflow: hidden;
+  padding:0px;
 }
 
  .flashcard p {
