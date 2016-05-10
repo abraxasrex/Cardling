@@ -1,11 +1,7 @@
 
-/*lb #94E2FF
-g #5CE868
-y #FFEF73
-br #E89259
-pink #FFA7EB  */
-
-
+/*46B29D
+F0CA4D
+E37B40*/
 
 html {
   overflow-y:scroll;
@@ -82,8 +78,39 @@ body{
 
 .card-video > video {
   width: 100%;
+    background-color: #E37B40;
 }
 
+.instructions h4, .navigate h4{
+  text-align:center;
+}
+
+.navigate ul{
+  list-style-type: none;
+  font-size: 24px;
+  width: 100%;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  text-align: center;
+}
+
+.navigate ul li{
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  color: white;
+  background-color:#324D5C;
+}
+.instructions, .navigate {
+  border-style: solid;
+  border-width: thin;
+  margin: 10px auto;
+}
+
+aside{
+  border-style: solid;
+  border-width: thin;
+}
 .jumbotron h1{
   width: 50%;
   margin: 0 auto;

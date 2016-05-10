@@ -42,6 +42,30 @@
             <input type="text" class="form-control input-lg text-center" placeholder="image link" ng-model="formData.src">
           <button type="submit" class="btn btn-primary btn-md" ng-click="submitCard()">{{submitText}}</button>
       </form>
+      <div class="instructions">
+        <h4>Instructions</h4>
+          <ul>
+            <li>use the form to add new cards to a set.</li>
+            <li>double click on a card to flip it.</li>
+            <li>navigate through sets below.</li>
+            <li> all sets are currently public.</li>
+          </ul>
+      </div>
+      <nav class="navigate">
+        <h4>Jump to:</h4>
+        <ul>
+          <li>all sets</li>
+          <li>my sets</li>
+          <li>search for set
+            <label for="set-search"></label>
+            <input name="set-search" type="text"></label>
+        </li>
+        <li>search for card
+          <label for="card-search"></label>
+          <input name="card-search" type="text">
+      </li>
+        </ul>
+      </nav>
     </aside>
     <div id="card-list">
       <div class="flashcard col-md-3" ng-repeat="card in cards" ng-dblclick="flip(card, card._id)" ng-class = "card._id" back-img = "./img/{{card.src}}">
