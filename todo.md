@@ -1,49 +1,21 @@
 
 ## Todo
 
-- ~dropdown language menu~
-
-- ~edit: v01 change media storage to user managed url entry~
-
-- ~form validation based on collection~
-
-- ~trim whitespace~
-
-- ~edit mongo Cards option~
-
-- ~card-back white background~
-
-- if link returns video, use video card display
-
- ### Weekend:
+- edit: v01 change media storage to user managed url entry
 
 - set up user accounts
 
-- user routing
-
-- swipe UI
-
-### next Week
+- server-side routing
 
 - mongolab connect
 
-- fix inital card text display
+- fix initial card text display
 
-- UI/UX styling + about me page
+-links/float header and/or footer
 
 - deployment
 
-### next Weekend
-
-- learn testing
-
-### next next Week
-
-- fix and deploy past projects + portfolio
-
-- write tests/publish npm package/simple demo
-
-### stretch goals
+- write tests
 
 - ionic packaging
 

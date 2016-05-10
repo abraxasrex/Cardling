@@ -15,8 +15,13 @@ body{
   margin: 20px 20px;
   width: 100%;
   max-width: 1500px;
+  margin-left: 0px;
+  padding-left: 0px;
 }
-
+.card-list{
+  float: left;
+  padding-left: 125px;
+}
 .front-flip {
   transform: rotate3d(0, 1, 0, 360deg);
 }
@@ -52,7 +57,7 @@ body{
  }
 
  .card-form {
-
+   float: right;
  }
 
  .flashcard .delete{
