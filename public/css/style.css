@@ -86,7 +86,7 @@ body{
     background-color: #E37B40;
 }
 
-.instructions h4, .navigate h4{
+aside h4{
   text-align:center;
 }
 
@@ -113,8 +113,8 @@ body{
 }
 
 aside{
-  border-style: solid;
-  border-width: thin;
+  /*border-style: solid;
+  border-width: thin;*/
 }
 .jumbotron h1{
   width: 50%;
@@ -140,6 +140,10 @@ form {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
 }
 
 fieldset {
@@ -155,4 +159,8 @@ justify-content: center;
 
 form select {
 width: 25%;
+}
+
+input{
+  width: 100%;
 }
