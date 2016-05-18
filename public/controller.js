@@ -16,10 +16,6 @@ function mainController($scope, $http) {
      }
   }
 
-  function toggleForm(){
-
-  }
-
   $http.get('/api/cards').success(function(data) {
     $scope.cards = data;
     initCards();
@@ -68,7 +64,12 @@ function mainController($scope, $http) {
    initCards();
  };
 
-// to separate into UI controller
+// below here: separate into UX controller
+
+function toggleForm(){
+
+}
+
   $scope.flip = function(card, id) {
     var flipper = document.getElementsByClassName(id)[0];
   if(flipper.classList.contains('back-flip')) {
@@ -89,7 +90,8 @@ function mainController($scope, $http) {
   };
 
   $scope.langChoices = [];
-    $scope.eng = 'English       (English)';
+  $scope.eng = 'English       (English)';
+
   $http.get('languages.json').success(function(languages) {
     for (item in languages.lang) {
       $scope.langChoices.push(languages.lang[item][0]);
@@ -99,13 +101,13 @@ function mainController($scope, $http) {
   });
 };
 
-Cardling.directive('backImg', function(){
-    return function(scope, element, attrs){
-        attrs.$observe('backImg', function(value) {
-            element.css({
-                'background-image': 'url(' + value +')',
-                'background-size' : 'cover'
-            });
-        });
-    };
-});
+// Cardling.directive('backImg', function(){
+//     return function(scope, element, attrs){
+//         attrs.$observe('backImg', function(value) {
+//             element.css({
+//                 'background-image': 'url(' + value +')',
+//                 'background-size' : 'cover'
+//             });
+//         });
+//     };
+// });

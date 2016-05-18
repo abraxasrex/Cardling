@@ -78,9 +78,12 @@ function removeCard(req, res) {
 
 module.exports = function (app) {
 
-
   app.get('/api/cards', function(req, res) {
     getCards(res);
+  });
+
+  app.get('/api/cards/:set', function(req, res) {
+    getCardSet(res);
   });
 
   app.delete('/api/cards/:card_id', function(req, res) {

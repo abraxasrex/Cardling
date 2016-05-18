@@ -5,11 +5,11 @@ var Schema = mongoose.Schema;
 var cardSchema = new Schema({
   original: {
     type: String,
-    default: ''
+    default: 'fish'
   },
   translated: {
     type: String,
-    default: ''
+    default: 'pescado'
   },
   src: {
     type: String,

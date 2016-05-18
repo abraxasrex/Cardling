@@ -1,21 +1,23 @@
 
 ## Todo
 
-1.  
+1.  DB/passport auth  
+
 - fix initial card text display  
 
 - sets  
 
 - set up user auth
 
-2.  
+2.  UI/UX:
+
 - edit: v01 change media storage to user managed url entry  
 
 - client-side input validation UX  
 
 - add links/ about
 
-3.  
+3.  Deployment  
 
 - deployment
 
@@ -23,9 +25,18 @@
 
 - changing set membership  
 
-4.  
+- common.js languages.json  
 
-- write tests
+
+4.  professional standards:  
+
+- separate controllers  
+
+- localize dependencies  
+
+- write tests  
+
+5.  
 
 - ionic packaging
 
