@@ -5,9 +5,9 @@
 
 - fix initial card text display  
 
-- sets  
+- go to set, go to mine, go to card
 
-- set up user auth
+- set up user auth  
 
 2.  UI/UX:
 
@@ -23,9 +23,13 @@
 
 - mongolab  
 
+4. Stretch goals    
+
 - changing set membership  
 
 - common.js languages.json  
+
+- search card/collections 
 
 
 4.  professional standards:  

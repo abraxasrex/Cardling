@@ -60,9 +60,10 @@
         <ul>
           <li>all sets</li>
           <li>my sets</li>
-          <li>search for set
+          <li>go to set
             <label for="set-search"></label>
-            <input name="set-search" type="text"></label>
+            <input name="set-search" type="text" ng-model="formData.targetSetRoute">
+            <button type="submit" class="btn btn-primary btn-md" ng-click="goToSet()"> Go </button>
         </li>
         <li>search for card
           <label for="card-search"></label>

@@ -9,19 +9,31 @@ function mainController($scope, $http) {
   function initCards(){
      if(!!$scope.cards) {
        $scope.cards.forEach( function(card) {
-        if(!card.text) {
-          card.text = card.translation;
-        }
+         console.log(card.translated, 'card translation');
+          if(!card.text) {
+            card.text = card.translated;
+          }
        });
      }
   }
 
+/// gets and posts //
   $http.get('/api/cards').success(function(data) {
     $scope.cards = data;
     initCards();
+    console.log(data);
   }).error(function(data) {
     console.log('Get Error: ' + data);
   });
+
+  $scope.goToSet = function(){
+    $http.post('api/cards/sets/' + $scope.formData.targetSetRoute).success(function(data){
+      $scope.cards = data;
+      initCards();
+    }).error(function(data){
+      console.log('set view redirect err:', data);
+    });
+  }
 
   $scope.submitCard = function() {
     $http.post('/api/cards', $scope.formData).success(function(data) {
@@ -101,13 +113,13 @@ function toggleForm(){
   });
 };
 
-// Cardling.directive('backImg', function(){
-//     return function(scope, element, attrs){
-//         attrs.$observe('backImg', function(value) {
-//             element.css({
-//                 'background-image': 'url(' + value +')',
-//                 'background-size' : 'cover'
-//             });
-//         });
-//     };
-// });
+Cardling.directive('backImg', function(){
+    return function(scope, element, attrs){
+        attrs.$observe('backImg', function(value) {
+            element.css({
+                'background-image': 'url(' + value +')',
+                'background-size' : 'cover'
+            });
+        });
+    };
+});

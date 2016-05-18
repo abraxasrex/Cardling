@@ -15,8 +15,8 @@ function getCards(res) {
 //   if(res.)
 // }
 
-function getCardSet(res){
-  Card.find({set:'spanish to english'},function(err,cards){
+function getCardSet(req, res){
+  Card.find({set:req.params.set},function(err,cards){
     if(err) {
       res.send('getcards in routes.js err', err);
     } else {
@@ -82,8 +82,8 @@ module.exports = function (app) {
     getCards(res);
   });
 
-  app.get('/api/cards/:set', function(req, res) {
-    getCardSet(res);
+  app.get('/api/cards/sets/:set', function(req, res) {
+    getCardSet(req, res);
   });
 
   app.delete('/api/cards/:card_id', function(req, res) {
