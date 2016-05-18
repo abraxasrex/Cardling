@@ -3,7 +3,7 @@
 
 1.  DB/passport auth  
 
-- ~fix initial card text display~ 
+- ~fix initial card text display~
 
 - go to set, go to mine, go to card
 
@@ -16,6 +16,8 @@
 - client-side input validation UX  
 
 - add links/ about
+
+- orderBy mongodb 
 
 3.  Deployment  
 

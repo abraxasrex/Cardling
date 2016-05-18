@@ -48,7 +48,7 @@ function makeCard(req, res, imagePath) {
 
 function editCard(req, res, imagePath, id) {
   Card.update({ _id: id },
-    { $set: { original: req.body.original, translated: req.body.translated, src: req.body.src}
+    { $set: { original: req.body.original, translated: req.body.translated, src: req.body.src, set: req.body.set}
   }, function(err, card) {
     if(err) {
       res.send('Card edit error: ', err);

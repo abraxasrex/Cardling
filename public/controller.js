@@ -56,7 +56,6 @@ function mainController($scope, $http) {
 
   $scope.editCard = function(card) {
     if($scope.formData.edit === card._id) {
-
       $scope.formData.edit = null;
       $scope.submitText = "Add card";
       $scope.formData.original = "";
