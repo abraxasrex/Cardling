@@ -9,7 +9,6 @@ function mainController($scope, $http) {
   function initCards(){
      if(!!$scope.cards) {
        $scope.cards.forEach( function(card) {
-         console.log(card.translated, 'card translation');
           if(!card.text) {
             card.text = card.translated;
           }
@@ -56,7 +55,7 @@ function mainController($scope, $http) {
   };
 
   $scope.editCard = function(card) {
-    if($scope.formData.edit === null) {
+    if($scope.formData.edit === null || $scope.formData.edit.length) {
       console.log('card to edit is ', card)
       $scope.formData.original = card.original
       $scope.formData.translated = card.translated;
