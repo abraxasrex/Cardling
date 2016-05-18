@@ -34,13 +34,17 @@
             <select id="translated">
               <option ng-repeat = "lang in langChoices" ng-selected="$index == 36"> {{ lang }} </option>
             </select>
-              </fieldset>
+        </fieldset>
             <input type="text" class="form-control input-lg text-center" placeholder="translation" ng-model="formData.translated">
             <fieldset>
               <label> add an image:</label>
-                  </fieldset>
+        </fieldset>
             <input type="text" class="form-control input-lg text-center" placeholder="image link" ng-model="formData.src">
-          <button type="submit" class="btn btn-primary btn-md" ng-click="submitCard()">{{submitText}}</button>
+        <fieldset>
+            <label> set membership:</label>
+        </fieldset>
+          <input type="text" class="form-control input-lg text-center" placeholder="set membership" ng-model="formData.set">
+        <button type="submit" class="btn btn-primary btn-md" ng-click="submitCard()">{{submitText}}</button>
       </form>
       <div class="instructions">
         <h4>Instructions</h4>

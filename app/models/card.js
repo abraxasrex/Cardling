@@ -14,6 +14,14 @@ var cardSchema = new Schema({
   src: {
     type: String,
     default: '../public/img/fishjpg'
+  },
+  owner:{
+    type:String,
+    default:'Ulysses'
+  },
+  set:{
+    type:String,
+    default:'Spanish to English set'
   }
 });
 

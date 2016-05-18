@@ -5,15 +5,20 @@ function mainController($scope, $http) {
   $scope.submitText = "Add card";
   $scope.formData.edit = null;
 
+///helper func declarations
   function initCards(){
-     if($scope.cards) {
+     if(!!$scope.cards) {
        $scope.cards.forEach( function(card) {
         if(!card.text) {
           card.text = card.translation;
         }
        });
      }
-  };
+  }
+
+  function toggleForm(){
+
+  }
 
   $http.get('/api/cards').success(function(data) {
     $scope.cards = data;
@@ -27,7 +32,7 @@ function mainController($scope, $http) {
       $scope.formData = {};
       $scope.cards = data;
       initCards();
-      console.log('card ', data);
+    //  console.log('card ', data);
     }).error(function(data) {
       console.log('Create Error: ' + data);
     });
@@ -48,6 +53,7 @@ function mainController($scope, $http) {
       $scope.formData.original = card.original
       $scope.formData.translated = card.translated;
       $scope.formData.src = card.src;
+      $scope.formData.set = card.set;
       $scope.formData.edit = card._id;
       $scope.submitText = "Edit card"
     }
@@ -56,6 +62,7 @@ function mainController($scope, $http) {
      $scope.submitText = "Add card";
      $scope.formData.original = "";
      $scope.formData.translated = "";
+     $scope.formData.set = card.set;
      $scope.formData.src = "";
    }
    initCards();

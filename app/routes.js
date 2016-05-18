@@ -11,6 +11,20 @@ function getCards(res) {
   });
 }
 
+// function getMyCards(res){
+//   if(res.)
+// }
+
+function getCardSet(res){
+  Card.find({set:'spanish to english'},function(err,cards){
+    if(err) {
+      res.send('getcards in routes.js err', err);
+    } else {
+      res.json(cards);
+    }
+  });
+}
+
 function makeCard(req, res, imagePath) {
   var hasVideo;
   if(imagePath.slice(imagePath.indexOf(imagePath.length - 1)) == '4') {

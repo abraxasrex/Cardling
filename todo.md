@@ -1,19 +1,29 @@
 
 ## Todo
 
-- edit: v01 change media storage to user managed url entry
+1.  
+- fix initial card text display  
 
-- set up user accounts
+- sets  
 
-- server-side routing
+- set up user auth
 
-- mongolab connect
+2.  
+- edit: v01 change media storage to user managed url entry  
 
-- fix initial card text display
+- client-side input validation UX  
 
--links/float header and/or footer
+- add links/ about
+
+3.  
 
 - deployment
+
+- mongolab  
+
+- changing set membership  
+
+4.  
 
 - write tests
 
