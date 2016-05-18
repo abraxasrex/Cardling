@@ -55,22 +55,23 @@ function mainController($scope, $http) {
   };
 
   $scope.editCard = function(card) {
-    if($scope.formData.edit === null || $scope.formData.edit.length) {
-      console.log('card to edit is ', card)
-      $scope.formData.original = card.original
-      $scope.formData.translated = card.translated;
-      $scope.formData.src = card.src;
-      $scope.formData.set = card.set;
-      $scope.formData.edit = card._id;
-      $scope.submitText = "Edit card"
+    if($scope.formData.edit === card._id) {
+
+      $scope.formData.edit = null;
+      $scope.submitText = "Add card";
+      $scope.formData.original = "";
+      $scope.formData.translated = "";
+      $scope.formData.set = "";
+      $scope.formData.src = "";
     }
    else {
-     $scope.formData.edit = null;
-     $scope.submitText = "Add card";
-     $scope.formData.original = "";
-     $scope.formData.translated = "";
+     //console.log('card to edit is ', card)
+     $scope.formData.original = card.original;
+     $scope.formData.translated = card.translated;
+     $scope.formData.src = card.src;
      $scope.formData.set = card.set;
-     $scope.formData.src = "";
+     $scope.formData.edit = card._id;
+     $scope.submitText = "Edit card";
    }
    initCards();
  };

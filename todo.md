@@ -3,7 +3,7 @@
 
 1.  DB/passport auth  
 
-- fix initial card text display  
+- ~fix initial card text display~ 
 
 - go to set, go to mine, go to card
 
@@ -29,7 +29,7 @@
 
 - common.js languages.json  
 
-- search card/collections 
+- search card/collections
 
 
 4.  professional standards:  
