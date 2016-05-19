@@ -5,7 +5,7 @@
 
 - ~fix initial card text display~
 
-- filter by set, card  
+- ~filter by set, card~
 
 - set up user auth  
 
@@ -13,13 +13,11 @@
 
 2.  UI/UX:
 
-- separate views  
-
 - edit: v01 change media storage to user managed url entry  
 
 - add links/ about  
 
-- orderBy mongodb  
+- cards OrderBy filter 
 
 
 3.  Deployment  
@@ -31,9 +29,9 @@
 
 4. Stretch goals    
 
-- common.js languages.json  
+- separate views  
 
-- search card/collections  
+- common.js languages.json  
 
 - client-side input validation UX  
 
