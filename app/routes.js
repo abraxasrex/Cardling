@@ -11,12 +11,18 @@ function getCards(res) {
   });
 }
 
-// function getMyCards(res){
-//   if(res.)
-// }
-
 function getCardSet(req, res){
   Card.find({set:req.params.set},function(err,cards){
+    if(err) {
+      res.send('getcards in routes.js err', err);
+    } else {
+      res.json(cards);
+    }
+  });
+}
+
+function getMatchingCards(req, res){
+  Card.find({$or: [{original:req.params.term},{translated:req.params.term}]},function(err,cards){
     if(err) {
       res.send('getcards in routes.js err', err);
     } else {
@@ -82,7 +88,15 @@ module.exports = function (app) {
     getCards(res);
   });
 
-  app.get('/api/cards/sets/:set', function(req, res) {
+  app.get('/api/cards/:term', function(req, res){
+    getMatchingCards(req, res);
+  });
+
+  // app.get('/api/cards/:owner', function(req, res){
+  //   getOneCard(req, res);
+  // });
+
+  app.get('/api/cards/:set', function(req, res) {
     getCardSet(req, res);
   });
 

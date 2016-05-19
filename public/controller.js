@@ -16,7 +16,9 @@ function mainController($scope, $http) {
      }
   }
 
+
 /// gets and posts //
+$scope.getAllCards = function(){
   $http.get('/api/cards').success(function(data) {
     $scope.cards = data;
     initCards();
@@ -24,10 +26,32 @@ function mainController($scope, $http) {
   }).error(function(data) {
     console.log('Get Error: ' + data);
   });
+}
 
-  $scope.goToSet = function(){
-    $http.post('api/cards/sets/' + $scope.formData.targetSetRoute).success(function(data){
+// $scope.getMyCards = function(){
+//   $http.get('api/cards/' + $scope.formData.targetSetRoute).success(function(data){
+//     $scope.cards = data;
+//   //  getAllCards();
+//     initCards();
+//   }).error(function(data){
+//     console.log('set view redirect err:', data);
+//   });
+// }
+
+$scope.getMatchingCards = function(){
+  $http.get('api/cards/' + $scope.formData.targetCard).success(function(data){
+    $scope.cards = data;
+  //  getAllCards();
+    initCards();
+  }).error(function(data){
+    console.log('set view redirect err:', data);
+  });
+}
+
+  $scope.getCardSet = function(){
+    $http.get('api/cards/' + $scope.formData.targetSetRoute).success(function(data){
       $scope.cards = data;
+    //  getAllCards();
       initCards();
     }).error(function(data){
       console.log('set view redirect err:', data);
@@ -110,6 +134,8 @@ function toggleForm(){
   }).error( function(err) {
     console.log('getting lang json err: ', err);
   });
+
+  $scope.getAllCards();
 };
 
 Cardling.directive('backImg', function(){

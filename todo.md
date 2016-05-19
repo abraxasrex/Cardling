@@ -5,19 +5,22 @@
 
 - ~fix initial card text display~
 
-- go to set, go to mine, go to card
+- filter by set, card  
 
 - set up user auth  
 
+- filter by mine (user)  
+
 2.  UI/UX:
+
+- separate views  
 
 - edit: v01 change media storage to user managed url entry  
 
-- client-side input validation UX  
+- add links/ about  
 
-- add links/ about
+- orderBy mongodb  
 
-- orderBy mongodb 
 
 3.  Deployment  
 
@@ -25,13 +28,14 @@
 
 - mongolab  
 
-4. Stretch goals    
 
-- changing set membership  
+4. Stretch goals    
 
 - common.js languages.json  
 
-- search card/collections
+- search card/collections  
+
+- client-side input validation UX  
 
 
 4.  professional standards:  
